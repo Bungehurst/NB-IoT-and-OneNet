@@ -70,7 +70,7 @@ void USART2_Send_Init(void)
 	usart2.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
 	
 	USART_Init(USART2,&usart2);
-	USART_Cmd(USART2,ENABLE);
+	//USART_Cmd(USART2,ENABLE);
 	USART_DMACmd(USART2, USART_DMAReq_Rx, ENABLE);
 	
   DMA_DeInit(DMA1_Channel6);
@@ -87,7 +87,7 @@ void USART2_Send_Init(void)
 	dma.DMA_M2M = DMA_M2M_Disable;
 	
   DMA_Init(DMA1_Channel6,&dma);
-	DMA_Cmd(DMA1_Channel6,ENABLE); 
+	//DMA_Cmd(DMA1_Channel6,ENABLE); 
 
 
 }

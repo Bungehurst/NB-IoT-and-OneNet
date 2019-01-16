@@ -31,10 +31,21 @@ int main(void)
 		State = NB_TEST ;
 		APP_Start();																	//应用层入口
 		//延时60s
-		count=0;
-		while(count<60) 
-		{	
-			
+
+		if(err_stat==0)
+		{
+			count=0;
+			while(count<60) 
+			{	
+				
+			}
+		}else
+		{
+			count=0;
+			while(count<30) 
+			{	
+				
+			}
 		}
 		count=0;
 	}

@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\OBJ\Z18B_Project.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\OBJ\Z18B_Project.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Tue Jan 15 14:54:29 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Wed Jan 16 15:23:40 2019
 <BR><P>
 <H3>Maximum Stack Usage =        320 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -243,7 +243,7 @@ Global Symbols
 <P><STRONG><a name="[13f]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
 <P><STRONG><a name="[60]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
-<BR><BR>[Stack]<UL><LI>Max Depth = 280 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 288 + Unknown Stack Size
 <LI>Call Chain = __rt_entry_main &rArr; main &rArr; APP_Start &rArr; NB_SendRegistrationRequest_2 &rArr; NB_ResourcesRegister_Multiple &rArr; NB_SendCmd &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
@@ -562,8 +562,8 @@ Global Symbols
 <P><STRONG><a name="[145]"></a>DMA_StructInit</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_dma.o(.text), UNUSED)
 
 <P><STRONG><a name="[9c]"></a>DMA_Cmd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_dma.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART3_PM_DMA_Init
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART2_Send_Init
+<BR><BR>[Called By]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PTC_Init
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART3_PM_DMA_Init
 <LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;APP_Start
 </UL>
 
@@ -996,8 +996,8 @@ Global Symbols
 <P><STRONG><a name="[1b3]"></a>USART_ClockStructInit</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text), UNUSED)
 
 <P><STRONG><a name="[96]"></a>USART_Cmd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART3_PM_Init
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART2_Send_Init
+<BR><BR>[Called By]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PTC_Init
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART3_PM_Init
 <LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;APP_Start
 </UL>
 
@@ -1141,11 +1141,10 @@ Global Symbols
 <P><STRONG><a name="[4e]"></a>fputc</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, usart2_send.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> _printf_char_file.o(.text)
 </UL>
-<P><STRONG><a name="[8b]"></a>USART2_Send_Init</STRONG> (Thumb, 218 bytes, Stack size 72 bytes, usart2_send.o(.text))
+<P><STRONG><a name="[8b]"></a>USART2_Send_Init</STRONG> (Thumb, 202 bytes, Stack size 72 bytes, usart2_send.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 140<LI>Call Chain = USART2_Send_Init &rArr; USART_Init &rArr; RCC_GetClocksFreq
 </UL>
 <BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_DMACmd
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Cmd
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_StructInit
 <LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_DeInit
@@ -1154,7 +1153,6 @@ Global Symbols
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHBPeriphClockCmd
 <LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_StructInit
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_Cmd
 <LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_Init
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_DeInit
 </UL>
@@ -1319,8 +1317,8 @@ Global Symbols
 <LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHT31_Read
 </UL>
 
-<P><STRONG><a name="[b4]"></a>PTC_Init</STRONG> (Thumb, 228 bytes, Stack size 8 bytes, ptc.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 208 + Unknown Stack Size
+<P><STRONG><a name="[b4]"></a>PTC_Init</STRONG> (Thumb, 244 bytes, Stack size 8 bytes, ptc.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 216 + Unknown Stack Size
 <LI>Call Chain = PTC_Init &rArr; NB_SendRegistrationRequest &rArr; NB_ResourcesRegister_Multiple &rArr; NB_SendCmd &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WindADS1115_Init
@@ -1330,6 +1328,8 @@ Global Symbols
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GasADS1115_Init
 <LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_HTS_Init
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_ADS_Init
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Cmd
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_Cmd
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
@@ -1349,6 +1349,7 @@ Global Symbols
 <LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NB_ResourcesRegister_Single
 <LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NB_SendRegistrationRequest
 <LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NB_InitConnectOneNet
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;APP_Start
 </UL>
 
 <P><STRONG><a name="[bf]"></a>NB_SendCmd_Mul</STRONG> (Thumb, 114 bytes, Stack size 32 bytes, nbiot.o(.text))
@@ -1369,6 +1370,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NB_SendCmd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PTC_Init
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;APP_Start
 </UL>
 
 <P><STRONG><a name="[1ca]"></a>NB_Create_OneNET_Instance</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, nbiot.o(.text), UNUSED)
@@ -1397,8 +1399,8 @@ Global Symbols
 <LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NB_SendRegistrationRequest
 </UL>
 
-<P><STRONG><a name="[ba]"></a>NB_SendRegistrationRequest</STRONG> (Thumb, 2250 bytes, Stack size 24 bytes, nbiot.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 200 + Unknown Stack Size
+<P><STRONG><a name="[ba]"></a>NB_SendRegistrationRequest</STRONG> (Thumb, 2454 bytes, Stack size 32 bytes, nbiot.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 208 + Unknown Stack Size
 <LI>Call Chain = NB_SendRegistrationRequest &rArr; NB_ResourcesRegister_Multiple &rArr; NB_SendCmd &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NB_ResourcesRegister_Multiple
@@ -1439,8 +1441,8 @@ Global Symbols
 <LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;APP_Start
 </UL>
 
-<P><STRONG><a name="[c8]"></a>NB_SendRegistrationRequest_2</STRONG> (Thumb, 1816 bytes, Stack size 24 bytes, nbiot.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 200 + Unknown Stack Size
+<P><STRONG><a name="[c8]"></a>NB_SendRegistrationRequest_2</STRONG> (Thumb, 2178 bytes, Stack size 32 bytes, nbiot.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 208 + Unknown Stack Size
 <LI>Call Chain = NB_SendRegistrationRequest_2 &rArr; NB_ResourcesRegister_Multiple &rArr; NB_SendCmd &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NB_ResourcesRegister_Multiple
@@ -1635,8 +1637,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;APP_Start
 </UL>
 
-<P><STRONG><a name="[e2]"></a>APP_Start</STRONG> (Thumb, 1658 bytes, Stack size 80 bytes, app.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 280 + Unknown Stack Size
+<P><STRONG><a name="[e2]"></a>APP_Start</STRONG> (Thumb, 1688 bytes, Stack size 80 bytes, app.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 288 + Unknown Stack Size
 <LI>Call Chain = APP_Start &rArr; NB_SendRegistrationRequest_2 &rArr; NB_ResourcesRegister_Multiple &rArr; NB_SendCmd &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WindADS1115_WriteToRegister
@@ -1645,7 +1647,9 @@ Global Symbols
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GasADS1115_ReadFromRegister
 <LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NB_SendRegistrationRequest_2
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NB_NotifyOneNetMsg
+<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NB_SendCmd
 <LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NB_SendRegistrationRequest
+<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NB_InitConnectOneNet
 <LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NB_DeleteRegistrationRequest
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Cmd
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
@@ -1670,8 +1674,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[61]"></a>main</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, main.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 280 + Unknown Stack Size
+<P><STRONG><a name="[61]"></a>main</STRONG> (Thumb, 68 bytes, Stack size 0 bytes, main.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 288 + Unknown Stack Size
 <LI>Call Chain = main &rArr; APP_Start &rArr; NB_SendRegistrationRequest_2 &rArr; NB_ResourcesRegister_Multiple &rArr; NB_SendCmd &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PTC_Init

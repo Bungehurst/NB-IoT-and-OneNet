@@ -42,6 +42,9 @@ void PTC_Init(void)
 	
 	for(int i = 0;i < 20;i++) delay_ms(1000);		//延迟20s等待模块开机
 	
+	DMA_Cmd(DMA1_Channel6,ENABLE);	
+	USART_Cmd(USART2,ENABLE);	
+	
 	//BC-35G NB-IoT 初始化
 	NB_InitConnectOneNet();											//检查模块状态
 	if(RegistrationRequestStatus == 0)
@@ -61,9 +64,11 @@ void PTC_Init(void)
 	
 	memset(&oneNetDevice,0,sizeof(oneNetDevice));		//清结构体
 	memset(USART2_RX_BUF,0,sizeof(USART2_RX_BUF));	//清缓存
-	count = 0;																			//计数清零
+	
 	
 	for(int i = 0;i < 10;i++) delay_ms(1000);		//延迟10s
+	
+	count = 0;																			//计数清零
 }
 
 

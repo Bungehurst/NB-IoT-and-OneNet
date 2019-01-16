@@ -72,7 +72,7 @@ void NB_InitConnectOneNet(void);
 uint8_t NB_SendRegistrationRequest(void);
 void NB_ResourcesRegister_Single(char *discoverMsgId);
 void NB_ResourcesRegister_Multiple(char *discoverMsgId);
-void NB_NotifyOneNetMsg(char *observeMsgId,char *objectId,char *insid,uint8_t *resId,uint8_t *msg);
+void NB_NotifyOneNetMsg(const char *observeMsgId,uint8_t *objectId,uint8_t *insid,uint8_t *resId,uint8_t *msg);
 void NB_DeleteRegistrationRequest(void);
 uint8_t NB_SendRegistrationRequest_2(void);
 

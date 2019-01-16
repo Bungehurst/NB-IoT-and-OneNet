@@ -177,32 +177,32 @@
         <Ww>
           <count>0</count>
           <WinNumber>1</WinNumber>
-          <ItemText>Tansfer_Buffer,0x0A</ItemText>
+          <ItemText>\\Z18B_Project\../BSP/usart/usart2_send.c\USART2_RX_BUF</ItemText>
         </Ww>
         <Ww>
           <count>1</count>
           <WinNumber>1</WinNumber>
-          <ItemText>\\Z18B_Project\../BSP/usart/usart2_send.c\USART2_RX_BUF</ItemText>
+          <ItemText>oneNetDevice</ItemText>
         </Ww>
         <Ww>
           <count>2</count>
           <WinNumber>1</WinNumber>
-          <ItemText>oneNetDevice</ItemText>
+          <ItemText>\\Z18B_Project\../PTC/ptc.c\count,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>3</count>
           <WinNumber>1</WinNumber>
-          <ItemText>\\Z18B_Project\../PTC/ptc.c\count,0x0A</ItemText>
+          <ItemText>err_stat,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>4</count>
           <WinNumber>1</WinNumber>
-          <ItemText>err_stat,0x0A</ItemText>
+          <ItemText>RegistrationRequestStatus</ItemText>
         </Ww>
         <Ww>
           <count>5</count>
           <WinNumber>1</WinNumber>
-          <ItemText>RegistrationRequestStatus</ItemText>
+          <ItemText>Err_State,0x0A</ItemText>
         </Ww>
       </WatchWindow1>
       <WatchWindow2>
@@ -218,11 +218,6 @@
         </Ww>
         <Ww>
           <count>2</count>
-          <WinNumber>2</WinNumber>
-          <ItemText>Err_State</ItemText>
-        </Ww>
-        <Ww>
-          <count>3</count>
           <WinNumber>2</WinNumber>
           <ItemText>count,0x0A</ItemText>
         </Ww>

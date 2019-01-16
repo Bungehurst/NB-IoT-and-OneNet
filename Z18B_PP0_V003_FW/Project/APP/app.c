@@ -129,6 +129,7 @@ void APP_Start(void)
 			//重新初始化DMA，使数据从BUFFER头更新
 			USART_Cmd(USART2,DISABLE);											//失能串口
 			DMA_Cmd(DMA1_Channel6,DISABLE);									//失能DMA
+			memset(&oneNetDevice,0,sizeof(oneNetDevice));
 			memset(USART2_RX_BUF,0,sizeof(USART2_RX_BUF));	//清缓存
 			DMA_InitTypeDef dma;
 			DMA_DeInit(DMA1_Channel6);
@@ -153,6 +154,8 @@ void APP_Start(void)
 				RegistrationRequestStatus = NB_SendRegistrationRequest_2();
 			}else if(err_stat == 1)												//如果模块有问题 err_stat == 1
 			{																							//删除注册信息，重新配置
+				
+				NB_InitConnectOneNet();	
 				NB_DeleteRegistrationRequest();
 				delay_ms(1000);delay_ms(1000);
 				NB_SendRegistrationRequest();
@@ -161,51 +164,53 @@ void APP_Start(void)
 				printf("AT+MIPLCLOSE=0\r\n");
 				delay_ms(1000);
 				memset(&oneNetDevice,0,sizeof(oneNetDevice));
+				memset(USART2_RX_BUF,0,sizeof(USART2_RX_BUF));	//清缓存
 				delay_ms(1000);
-				err_stat = 0;
 				RegistrationRequestStatus = 0;
+				err_stat = 0;
+				break;
 			}
 			delay_ms(1000);
 			if(RegistrationRequestStatus == 2) 
 			{
 				sprintf(T_varible,"%4.1f",NB_Buffer[0]);
-				NB_NotifyOneNetMsg((char *)oneNetDevice.observeMsgId_3303_0,(char *)"3303",(char *)"0",(uint8_t *)"5700",(uint8_t *)T_varible);
+				NB_NotifyOneNetMsg((const char *)oneNetDevice.observeMsgId_3303_0,(uint8_t *)"3303",(uint8_t *)"0",(uint8_t *)"5700",(uint8_t *)T_varible);
 
 				sprintf(T_varible,"%4.1f",NB_Buffer[1]);
-				NB_NotifyOneNetMsg((char *)oneNetDevice.observeMsgId_3304_0,(char *)"3304",(char *)"0",(uint8_t *)"5700",(uint8_t *)T_varible);
+				NB_NotifyOneNetMsg((const char *)oneNetDevice.observeMsgId_3304_0,(uint8_t *)"3304",(uint8_t *)"0",(uint8_t *)"5700",(uint8_t *)T_varible);
 
 				sprintf(T_varible,"%4.1f",NB_Buffer[2]);
-				NB_NotifyOneNetMsg((char *)oneNetDevice.observeMsgId_3323_0,(char *)"3323",(char *)"0",(uint8_t *)"5700",(uint8_t *)T_varible);
+				NB_NotifyOneNetMsg((const char *)oneNetDevice.observeMsgId_3323_0,(uint8_t *)"3323",(uint8_t *)"0",(uint8_t *)"5700",(uint8_t *)T_varible);
 
 				sprintf(T_varible,"%4.1f",NB_Buffer[3]);
-				NB_NotifyOneNetMsg((char *)oneNetDevice.observeMsgId_3315_0,(char *)"3315",(char *)"0",(uint8_t *)"5700",(uint8_t *)T_varible);
+				NB_NotifyOneNetMsg((const char *)oneNetDevice.observeMsgId_3315_0,(uint8_t *)"3315",(uint8_t *)"0",(uint8_t *)"5700",(uint8_t *)T_varible);
 
 				sprintf(T_varible,"%4.1f",NB_Buffer[4]);
-				NB_NotifyOneNetMsg((char *)oneNetDevice.observeMsgId_3315_1,(char *)"3315",(char *)"1",(uint8_t *)"5700",(uint8_t *)T_varible);
+				NB_NotifyOneNetMsg((const char *)oneNetDevice.observeMsgId_3315_1,(uint8_t *)"3315",(uint8_t *)"1",(uint8_t *)"5700",(uint8_t *)T_varible);
 
 				sprintf(T_varible,"%4.1f",NB_Buffer[5]);
-				NB_NotifyOneNetMsg((char *)oneNetDevice.observeMsgId_3315_2,(char *)"3315",(char *)"2",(uint8_t *)"5700",(uint8_t *)T_varible);
+				NB_NotifyOneNetMsg((const char *)oneNetDevice.observeMsgId_3315_2,(uint8_t *)"3315",(uint8_t *)"2",(uint8_t *)"5700",(uint8_t *)T_varible);
 
 				sprintf(T_varible,"%4.1f",NB_Buffer[6]);
-				NB_NotifyOneNetMsg((char *)oneNetDevice.observeMsgId_3315_3,(char *)"3315",(char *)"3",(uint8_t *)"5700",(uint8_t *)T_varible);
+				NB_NotifyOneNetMsg((const char *)oneNetDevice.observeMsgId_3315_3,(uint8_t *)"3315",(uint8_t *)"3",(uint8_t *)"5700",(uint8_t *)T_varible);
 
 				sprintf(T_varible,"%4.1f",NB_Buffer[7]);
-				NB_NotifyOneNetMsg((char *)oneNetDevice.observeMsgId_3316_0,(char *)"3316",(char *)"0",(uint8_t *)"5700",(uint8_t *)T_varible);
+				NB_NotifyOneNetMsg((const char *)oneNetDevice.observeMsgId_3316_0,(uint8_t *)"3316",(uint8_t *)"0",(uint8_t *)"5700",(uint8_t *)T_varible);
 
 				sprintf(T_varible,"%4.1f",NB_Buffer[8]);
-				NB_NotifyOneNetMsg((char *)oneNetDevice.observeMsgId_3316_1,(char *)"3316",(char *)"1",(uint8_t *)"5700",(uint8_t *)T_varible);
+				NB_NotifyOneNetMsg((const char *)oneNetDevice.observeMsgId_3316_1,(uint8_t *)"3316",(uint8_t *)"1",(uint8_t *)"5700",(uint8_t *)T_varible);
 
 				sprintf(T_varible,"%4.1f",NB_Buffer[9]);
-				NB_NotifyOneNetMsg((char *)oneNetDevice.observeMsgId_3316_2,(char *)"3316",(char *)"2",(uint8_t *)"5700",(uint8_t *)T_varible);
+				NB_NotifyOneNetMsg((const char *)oneNetDevice.observeMsgId_3316_2,(uint8_t *)"3316",(uint8_t *)"2",(uint8_t *)"5700",(uint8_t *)T_varible);
 
 				sprintf(T_varible,"%4.1f",NB_Buffer[10]);
-				NB_NotifyOneNetMsg((char *)oneNetDevice.observeMsgId_3316_3,(char *)"3316",(char *)"3",(uint8_t *)"5700",(uint8_t *)T_varible);
+				NB_NotifyOneNetMsg((const char *)oneNetDevice.observeMsgId_3316_3,(uint8_t *)"3316",(uint8_t *)"3",(uint8_t *)"5700",(uint8_t *)T_varible);
 				delay_ms(1000);
 				memset(&oneNetDevice,0,sizeof(oneNetDevice));
-				delay_ms(1000);
-				printf("AT+MIPLCLOSE=0\r\n");
-				printf("AT+MIPLCLOSE=0\r\n");
+				NB_SendCmd((uint8_t *)"AT+MIPLCLOSE=0\r\n",(uint8_t *)"+MIPLEVENT: 0",DefaultTimeout,1);
 				RegistrationRequestStatus = 0;
+				USART_Cmd(USART2,DISABLE);	
+				DMA_Cmd(DMA1_Channel6,DISABLE);	
 				break;
 			}
 			if(RegistrationRequestStatus == 0) err_stat = 1;

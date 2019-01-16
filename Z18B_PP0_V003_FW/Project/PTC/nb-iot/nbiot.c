@@ -119,10 +119,12 @@ uint8_t NB_SendRegistrationRequest(void)
 	int ret=0;
 	int stat = 3315;
 	int i_1 = 0;
+	u32 timeOutCount_2 = 0;
 	u32 timeOutCount = 0;
 	static char *discoverMsgIdPos1 = NULL,*observeMsgIdPos1= NULL;
 	static char *discoverMsgIdPos2[5] = {NULL,NULL,NULL,NULL,NULL},*observeMsgIdPos2[11]= {NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL};
 	printf((uint8_t*)"AT+MIPLOPEN=0,9600,60\r\n");
+	for(int i = 0;i<10;i++) delay_ms(1000);
 	timeOutCount = count;
 	while(1)
 	{
@@ -132,131 +134,201 @@ uint8_t NB_SendRegistrationRequest(void)
 			if(ret == 1)
 				break;
 			delay_ms(1000);delay_ms(1000);delay_ms(1000);
+			timeOutCount_2 = count;
 			while(1)
 			{
 				observeMsgIdPos2[0] = strstr((const char *)USART2_RX_BUF,(const char *)"1,3303,0");
 				if(observeMsgIdPos2[0])
 				{
 					for(i_1 = 0;*(observeMsgIdPos2[0]-9+i_1)!=',';i_1++);
-					memcpy(oneNetDevice.observeMsgId_3303_0,observeMsgIdPos2[0]-9+i_1+1,observeMsgIdPos2[0]-(observeMsgIdPos2[0]-9+i_1)-2);
+					memcpy(oneNetDevice.observeMsgId_3303_0,(observeMsgIdPos2[0]-8+i_1),(7-i_1));
 					break;
 				}
+				if((count - timeOutCount_2)>8)
+				{
+					timeOutCount = 0;
+					ret = 0;
+					break;
+				}	
 			}
-			
+			timeOutCount_2 = count;
 			while(1)
 			{
 				observeMsgIdPos2[1] = strstr((const char *)USART2_RX_BUF,(const char *)"1,3304,0");
 				if(observeMsgIdPos2[1])
 				{
 					for(i_1 = 0;*(observeMsgIdPos2[1]-9+i_1)!=',';i_1++);
-					memcpy(oneNetDevice.observeMsgId_3304_0,observeMsgIdPos2[1]-9+i_1+1,observeMsgIdPos2[1]-(observeMsgIdPos2[1]-9+i_1)-2);
+					memcpy(oneNetDevice.observeMsgId_3304_0,(observeMsgIdPos2[1]-8+i_1),(7-i_1));
 					break;
 				}
+				if((count - timeOutCount_2)>8)
+				{
+					timeOutCount = 0;
+					ret = 0;
+					break;
+				}	
 			}
-			
+			timeOutCount_2 = count;
 			while(1)
 			{
 				observeMsgIdPos2[3] = strstr((const char *)USART2_RX_BUF,(const char *)"1,3315,0");
 				if(observeMsgIdPos2[3])
 				{
 					for(i_1 = 0;*(observeMsgIdPos2[3]-9+i_1)!=',';i_1++);
-					memcpy(oneNetDevice.observeMsgId_3315_0,observeMsgIdPos2[3]-9+i_1+1,observeMsgIdPos2[3]-(observeMsgIdPos2[3]-9+i_1)-2);
+					memcpy(oneNetDevice.observeMsgId_3315_0,(observeMsgIdPos2[3]-8+i_1),(7-i_1));
 					break;
 				}
+				if((count - timeOutCount_2)>8)
+				{
+					timeOutCount = 0;
+					ret = 0;
+					break;
+				}	
 			}
-			
+			timeOutCount_2 = count;
 			while(1)
 			{
 				observeMsgIdPos2[4] = strstr((const char *)USART2_RX_BUF,(const char *)"1,3315,1");
 				if(observeMsgIdPos2[4])
 				{
 					for(i_1 = 0;*(observeMsgIdPos2[4]-9+i_1)!=',';i_1++);
-					memcpy(oneNetDevice.observeMsgId_3315_1,observeMsgIdPos2[4]-9+i_1+1,observeMsgIdPos2[4]-(observeMsgIdPos2[4]-9+i_1)-2);
+					memcpy(oneNetDevice.observeMsgId_3315_1,(observeMsgIdPos2[4]-8+i_1),(7-i_1));
 					break;
 				}
+				if((count - timeOutCount_2)>8)
+				{
+					timeOutCount = 0;
+					ret = 0;
+					break;
+				}	
 			}
-			
+			timeOutCount_2 = count;
 			while(1)
 			{
 				observeMsgIdPos2[5] = strstr((const char *)USART2_RX_BUF,(const char *)"1,3315,2");
 				if(observeMsgIdPos2[5])
 				{
 					for(i_1 = 0;*(observeMsgIdPos2[5]-9+i_1)!=',';i_1++);
-					memcpy(oneNetDevice.observeMsgId_3315_2,observeMsgIdPos2[5]-9+i_1+1,observeMsgIdPos2[5]-(observeMsgIdPos2[5]-9+i_1)-2);
+					memcpy(oneNetDevice.observeMsgId_3315_2,(observeMsgIdPos2[5]-8+i_1),(7-i_1));
 					break;
 				}
+				if((count - timeOutCount_2)>8)
+				{
+					timeOutCount = 0;
+					ret = 0;
+					break;
+				}	
 			}
-			
+			timeOutCount_2 = count;
 			while(1)
 			{
 				observeMsgIdPos2[6] = strstr((const char *)USART2_RX_BUF,(const char *)"1,3315,3");
 				if(observeMsgIdPos2[6])
 				{
 					for(i_1 = 0;*(observeMsgIdPos2[6]-9+i_1)!=',';i_1++);
-					memcpy(oneNetDevice.observeMsgId_3315_3,observeMsgIdPos2[6]-9+i_1+1,observeMsgIdPos2[6]-(observeMsgIdPos2[6]-9+i_1)-2);
+					memcpy(oneNetDevice.observeMsgId_3315_3,(observeMsgIdPos2[6]-8+i_1),(7-i_1));
 					break;
 				}
+				if((count - timeOutCount_2)>8)
+				{
+					timeOutCount = 0;
+					ret = 0;
+					break;
+				}	
 			}
-			
+			timeOutCount_2 = count;
 			while(1)
 			{
 				observeMsgIdPos2[7] = strstr((const char *)USART2_RX_BUF,(const char *)"1,3316,0");
 				if(observeMsgIdPos2[7])
 				{
 					for(i_1 = 0;*(observeMsgIdPos2[7]-9+i_1)!=',';i_1++);
-					memcpy(oneNetDevice.observeMsgId_3316_0,observeMsgIdPos2[7]-9+i_1+1,observeMsgIdPos2[7]-(observeMsgIdPos2[7]-9+i_1)-2);
+					memcpy(oneNetDevice.observeMsgId_3316_0,(observeMsgIdPos2[7]-8+i_1),(7-i_1));
 					break;
 				}
+				if((count - timeOutCount_2)>8)
+				{
+					timeOutCount = 0;
+					ret = 0;
+					break;
+				}	
 			}
-			
+			timeOutCount_2 = count;
 			while(1)
 			{
 				observeMsgIdPos2[8] = strstr((const char *)USART2_RX_BUF,(const char *)"1,3316,1");
 				if(observeMsgIdPos2[8])
 				{
 					for(i_1 = 0;*(observeMsgIdPos2[8]-9+i_1)!=',';i_1++);
-					memcpy(oneNetDevice.observeMsgId_3316_1,observeMsgIdPos2[8]-9+i_1+1,observeMsgIdPos2[8]-(observeMsgIdPos2[8]-9+i_1)-2);
+					memcpy(oneNetDevice.observeMsgId_3316_1,(observeMsgIdPos2[8]-8+i_1),(7-i_1));
 					break;
 				}
+				if((count - timeOutCount_2)>8)
+				{
+					timeOutCount = 0;
+					ret = 0;
+					break;
+				}	
 			}
-			
+			timeOutCount_2 = count;
 			while(1)
 			{
 				observeMsgIdPos2[9] = strstr((const char *)USART2_RX_BUF,(const char *)"1,3316,2");
 				if(observeMsgIdPos2[9])
 				{
 					for(i_1 = 0;*(observeMsgIdPos2[9]-9+i_1)!=',';i_1++);
-					memcpy(oneNetDevice.observeMsgId_3316_2,observeMsgIdPos2[9]-9+i_1+1,observeMsgIdPos2[9]-(observeMsgIdPos2[9]-9+i_1)-2);
+					memcpy(oneNetDevice.observeMsgId_3316_2,(observeMsgIdPos2[9]-8+i_1),(7-i_1));
 					break;
 				}
+				if((count - timeOutCount_2)>8)
+				{
+					timeOutCount = 0;
+					ret = 0;
+					break;
+				}	
 			}
-			
+			timeOutCount_2 = count;
 			while(1)
 			{
 				observeMsgIdPos2[10] = strstr((const char *)USART2_RX_BUF,(const char *)"1,3316,3");
 				if(observeMsgIdPos2[10])
 				{
 					for(i_1 = 0;*(observeMsgIdPos2[10]-9+i_1)!=',';i_1++);
-					memcpy(oneNetDevice.observeMsgId_3316_3,observeMsgIdPos2[10]-9+i_1+1,observeMsgIdPos2[10]-(observeMsgIdPos2[10]-9+i_1)-2);
+					memcpy(oneNetDevice.observeMsgId_3316_3,(observeMsgIdPos2[10]-8+i_1),(7-i_1));
 					break;
 				}
+				if((count - timeOutCount_2)>8)
+				{
+					timeOutCount = 0;
+					ret = 0;
+					break;
+				}	
 			}
-			
+			timeOutCount_2 = count;
 			while(1)
 			{
 				observeMsgIdPos2[2] = strstr((const char *)USART2_RX_BUF,(const char *)"1,3323,0");
 				if(observeMsgIdPos2[2])
 				{
 					for(i_1 = 0;*(observeMsgIdPos2[2]-9+i_1)!=',';i_1++);
-					memcpy(oneNetDevice.observeMsgId_3323_0,observeMsgIdPos2[2]-9+i_1+1,observeMsgIdPos2[2]-(observeMsgIdPos2[2]-9+i_1)-2);
+					memcpy(oneNetDevice.observeMsgId_3323_0,(observeMsgIdPos2[2]-8+i_1),(7-i_1));
 					break;
 				}
+				if((count - timeOutCount_2)>8)
+				{
+					timeOutCount = 0;
+					ret = 0;
+					break;
+				}			
 			}
 			ret = 1;
 		}
 		if(ret == 1)
-				break;
-		if((count - timeOutCount)>30)
+		{
+			break;
+		}
+				
+		if((count - timeOutCount)>90)
 		{
 			timeOutCount = 0;
 			ret = 0;
@@ -280,6 +352,7 @@ uint8_t NB_SendRegistrationRequest(void)
 			switch(stat)
 			{
 				case 3315:
+					timeOutCount_2 = count;
 					while(1)
 					{
 						discoverMsgIdPos2[0] = strstr((const char *)USART2_RX_BUF,(const char *)",3315");
@@ -290,26 +363,38 @@ uint8_t NB_SendRegistrationRequest(void)
 							NB_ResourcesRegister_Multiple((char *)oneNetDevice.discoverMsgId_3315);
 							break;
 						}
+						if((count - timeOutCount_2)>8) 
+						{
+							timeOutCount = 0;
+							ret = 0;
+							break;
+						}
 					}
 					stat = 3316;
 					break;
 				case 3316:
-					
+					timeOutCount_2 = count;
 					while(1)
 					{
 						discoverMsgIdPos2[1] = strstr((const char *)USART2_RX_BUF,(const char *)",3316");
 						if(discoverMsgIdPos2[1])
 						{
-						for(i_1 = 0;*(discoverMsgIdPos2[1]-9+i_1)!=',';i_1++);
-						memcpy(oneNetDevice.discoverMsgId_3316,discoverMsgIdPos2[1]-9+i_1+1,discoverMsgIdPos2[1]-(discoverMsgIdPos2[1]-9+i_1+1));	
-						NB_ResourcesRegister_Multiple((char *)oneNetDevice.discoverMsgId_3316);
-						break;
+							for(i_1 = 0;*(discoverMsgIdPos2[1]-9+i_1)!=',';i_1++);
+							memcpy(oneNetDevice.discoverMsgId_3316,discoverMsgIdPos2[1]-9+i_1+1,discoverMsgIdPos2[1]-(discoverMsgIdPos2[1]-9+i_1+1));	
+							NB_ResourcesRegister_Multiple((char *)oneNetDevice.discoverMsgId_3316);
+							break;
+						}
+						if((count - timeOutCount_2)>8) 
+						{
+							timeOutCount = 0;
+							ret = 0;
+							break;
 						}
 					}
 					stat = 3303;
 					break;
 				case 3303:
-					
+					timeOutCount_2 = count;
 					while(1)
 					{
 						discoverMsgIdPos2[2] = strstr((const char *)USART2_RX_BUF,(const char *)",3303");
@@ -320,11 +405,17 @@ uint8_t NB_SendRegistrationRequest(void)
 							NB_ResourcesRegister_Single((char *)oneNetDevice.discoverMsgId_3303);
 							break;
 						}
+						if((count - timeOutCount_2)>8) 
+						{
+							timeOutCount = 0;
+							ret = 0;
+							break;
+						}
 					}
 					stat = 3304;
 					break;
 				case 3304:
-					
+					timeOutCount_2 = count;
 					while(1)
 					{			
 						discoverMsgIdPos2[3] = strstr((char *)USART2_RX_BUF,(const char *)",3304");
@@ -335,11 +426,17 @@ uint8_t NB_SendRegistrationRequest(void)
 							NB_ResourcesRegister_Single((char *)oneNetDevice.discoverMsgId_3304);
 							break;
 						}
+						if((count - timeOutCount_2)>8) 
+						{
+							timeOutCount = 0;
+							ret = 0;
+							break;
+						}
 					}
 					stat = 3323;
 					break;
 				case 3323:
-					
+					timeOutCount_2 = count;
 					while(1)
 					{	
 						discoverMsgIdPos2[4] = strstr((char *)USART2_RX_BUF,(const char *)",3323");
@@ -350,6 +447,12 @@ uint8_t NB_SendRegistrationRequest(void)
 							NB_ResourcesRegister_Single((char *)oneNetDevice.discoverMsgId_3323);
 							break;
 						}
+						if((count - timeOutCount_2)>8) 
+						{
+							timeOutCount = 0;
+							ret = 0;
+							break;
+						}
 					}
 					ret = 2;
 					break;
@@ -358,7 +461,7 @@ uint8_t NB_SendRegistrationRequest(void)
 		}
 		if(ret == 2)
 			break;
-		if((count - timeOutCount)>30) 
+		if((count - timeOutCount)>45) 
 		{
 			timeOutCount = 0;
 			ret = 0;
@@ -408,7 +511,7 @@ void NB_ResourcesRegister_Multiple(char *discoverMsgId)
 *						*msg，要发送的数据（String形式）
 * 返 回 值: 无
 ***************************************************************/
-void NB_NotifyOneNetMsg(char *observeMsgId,char *objectId,char *insid,uint8_t *resId,uint8_t *msg)
+void NB_NotifyOneNetMsg(const char *observeMsgId,uint8_t *objectId,uint8_t *insid,uint8_t *resId,uint8_t *msg)
 {
 	u32 count_1 = 0;
 	
@@ -489,9 +592,11 @@ uint8_t NB_SendRegistrationRequest_2(void)
 	int stat = 3315;
 	int i_1 = 0;
 	u32 timeOutCount = 0;
+	u32 timeOutCount_2 = 0;
 	static char *discoverMsgIdPos1 = NULL,*observeMsgIdPos1= NULL;
 	static char *discoverMsgIdPos2[5] = {NULL,NULL,NULL,NULL,NULL},*observeMsgIdPos2[11]= {NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL};
 	printf((uint8_t*)"AT+MIPLOPEN=0,9600,60\r\n");
+	for(int i = 0;i<10;i++) delay_ms(1000);
 	timeOutCount = count;
 	while(1)
 	{
@@ -500,7 +605,7 @@ uint8_t NB_SendRegistrationRequest_2(void)
 		{
 			if(ret == 1)
 				break;
-			delay_ms(1000);delay_ms(1000);delay_ms(1000);
+			timeOutCount_2 = count;
 			while(1)
 			{
 				observeMsgIdPos2[0] = strstr((const char *)USART2_RX_BUF,(const char *)"1,3303,0");
@@ -510,8 +615,14 @@ uint8_t NB_SendRegistrationRequest_2(void)
 					memcpy(oneNetDevice.observeMsgId_3303_0,observeMsgIdPos2[0]-12+i_1+1,observeMsgIdPos2[0]-(observeMsgIdPos2[0]-12+i_1)-2);
 					break;
 				}
+				if((count - timeOutCount_2)>8)
+				{
+					timeOutCount = 0;
+					ret = 0;
+					break;
+				}
 			}
-			
+			timeOutCount_2 = count;
 			while(1)
 			{
 				observeMsgIdPos2[1] = strstr((const char *)USART2_RX_BUF,(const char *)"1,3304,0");
@@ -521,8 +632,14 @@ uint8_t NB_SendRegistrationRequest_2(void)
 					memcpy(oneNetDevice.observeMsgId_3304_0,observeMsgIdPos2[1]-12+i_1+1,observeMsgIdPos2[1]-(observeMsgIdPos2[1]-12+i_1)-2);
 					break;
 				}
+				if((count - timeOutCount_2)>8)
+				{
+					timeOutCount = 0;
+					ret = 0;
+					break;
+				}
 			}
-			
+			timeOutCount_2 = count;
 			while(1)
 			{
 				observeMsgIdPos2[3] = strstr((const char *)USART2_RX_BUF,(const char *)"1,3315,0");
@@ -532,8 +649,14 @@ uint8_t NB_SendRegistrationRequest_2(void)
 					memcpy(oneNetDevice.observeMsgId_3315_0,observeMsgIdPos2[3]-12+i_1+1,observeMsgIdPos2[3]-(observeMsgIdPos2[3]-12+i_1)-2);
 					break;
 				}
+				if((count - timeOutCount_2)>8)
+				{
+					timeOutCount = 0;
+					ret = 0;
+					break;
+				}
 			}
-			
+			timeOutCount_2 = count;
 			while(1)
 			{
 				observeMsgIdPos2[4] = strstr((const char *)USART2_RX_BUF,(const char *)"1,3315,1");
@@ -543,8 +666,14 @@ uint8_t NB_SendRegistrationRequest_2(void)
 					memcpy(oneNetDevice.observeMsgId_3315_1,observeMsgIdPos2[4]-12+i_1+1,observeMsgIdPos2[4]-(observeMsgIdPos2[4]-12+i_1)-2);
 					break;
 				}
+				if((count - timeOutCount_2)>8)
+				{
+					timeOutCount = 0;
+					ret = 0;
+					break;
+				}
 			}
-			
+			timeOutCount_2 = count;
 			while(1)
 			{
 				observeMsgIdPos2[5] = strstr((const char *)USART2_RX_BUF,(const char *)"1,3315,2");
@@ -554,8 +683,14 @@ uint8_t NB_SendRegistrationRequest_2(void)
 					memcpy(oneNetDevice.observeMsgId_3315_2,observeMsgIdPos2[5]-12+i_1+1,observeMsgIdPos2[5]-(observeMsgIdPos2[5]-12+i_1)-2);
 					break;
 				}
+				if((count - timeOutCount_2)>8)
+				{
+					timeOutCount = 0;
+					ret = 0;
+					break;
+				}
 			}
-			
+			timeOutCount_2 = count;
 			while(1)
 			{
 				observeMsgIdPos2[6] = strstr((const char *)USART2_RX_BUF,(const char *)"1,3315,3");
@@ -565,8 +700,14 @@ uint8_t NB_SendRegistrationRequest_2(void)
 					memcpy(oneNetDevice.observeMsgId_3315_3,observeMsgIdPos2[6]-12+i_1+1,observeMsgIdPos2[6]-(observeMsgIdPos2[6]-12+i_1)-2);
 					break;
 				}
+				if((count - timeOutCount_2)>8)
+				{
+					timeOutCount = 0;
+					ret = 0;
+					break;
+				}
 			}
-			
+			timeOutCount_2 = count;
 			while(1)
 			{
 				observeMsgIdPos2[7] = strstr((const char *)USART2_RX_BUF,(const char *)"1,3316,0");
@@ -576,8 +717,14 @@ uint8_t NB_SendRegistrationRequest_2(void)
 					memcpy(oneNetDevice.observeMsgId_3316_0,observeMsgIdPos2[7]-12+i_1+1,observeMsgIdPos2[7]-(observeMsgIdPos2[7]-12+i_1)-2);
 					break;
 				}
+				if((count - timeOutCount_2)>8)
+				{
+					timeOutCount = 0;
+					ret = 0;
+					break;
+				}
 			}
-			
+			timeOutCount_2 = count;
 			while(1)
 			{
 				observeMsgIdPos2[8] = strstr((const char *)USART2_RX_BUF,(const char *)"1,3316,1");
@@ -587,8 +734,14 @@ uint8_t NB_SendRegistrationRequest_2(void)
 					memcpy(oneNetDevice.observeMsgId_3316_1,observeMsgIdPos2[8]-12+i_1+1,observeMsgIdPos2[8]-(observeMsgIdPos2[8]-12+i_1)-2);
 					break;
 				}
+				if((count - timeOutCount_2)>8)
+				{
+					timeOutCount = 0;
+					ret = 0;
+					break;
+				}
 			}
-			
+			timeOutCount_2 = count;
 			while(1)
 			{
 				observeMsgIdPos2[9] = strstr((const char *)USART2_RX_BUF,(const char *)"1,3316,2");
@@ -598,8 +751,14 @@ uint8_t NB_SendRegistrationRequest_2(void)
 					memcpy(oneNetDevice.observeMsgId_3316_2,observeMsgIdPos2[9]-12+i_1+1,observeMsgIdPos2[9]-(observeMsgIdPos2[9]-12+i_1)-2);
 					break;
 				}
+				if((count - timeOutCount_2)>8)
+				{
+					timeOutCount = 0;
+					ret = 0;
+					break;
+				}
 			}
-			
+			timeOutCount_2 = count;
 			while(1)
 			{
 				observeMsgIdPos2[10] = strstr((const char *)USART2_RX_BUF,(const char *)"1,3316,3");
@@ -609,8 +768,14 @@ uint8_t NB_SendRegistrationRequest_2(void)
 					memcpy(oneNetDevice.observeMsgId_3316_3,observeMsgIdPos2[10]-12+i_1+1,observeMsgIdPos2[10]-(observeMsgIdPos2[10]-12+i_1)-2);
 					break;
 				}
+				if((count - timeOutCount_2)>8)
+				{
+					timeOutCount = 0;
+					ret = 0;
+					break;
+				}
 			}
-			
+			timeOutCount_2 = count;
 			while(1)
 			{
 				observeMsgIdPos2[2] = strstr((const char *)USART2_RX_BUF,(const char *)"1,3323,0");
@@ -620,12 +785,20 @@ uint8_t NB_SendRegistrationRequest_2(void)
 					memcpy(oneNetDevice.observeMsgId_3323_0,observeMsgIdPos2[2]-12+i_1+1,observeMsgIdPos2[2]-(observeMsgIdPos2[2]-12+i_1)-2);
 					break;
 				}
+				if((count - timeOutCount_2)>8)
+				{
+					timeOutCount = 0;
+					ret = 0;
+					break;
+				}
 			}
 			ret = 1;
 		}
 		if(ret == 1)
-				break;
-		if((count - timeOutCount)>30) 
+		{
+			break;
+		}
+		if((count - timeOutCount)>90) 
 		{
 			timeOutCount = 0;
 			ret = 0;
@@ -648,6 +821,7 @@ uint8_t NB_SendRegistrationRequest_2(void)
 			switch(stat)
 			{
 				case 3315:
+					timeOutCount_2 = count;
 					while(1)
 					{
 						discoverMsgIdPos2[0] = strstr((const char *)USART2_RX_BUF,(const char *)",3315");
@@ -658,26 +832,38 @@ uint8_t NB_SendRegistrationRequest_2(void)
 							NB_ResourcesRegister_Multiple((char *)oneNetDevice.discoverMsgId_3315);
 							break;
 						}
+						if((count - timeOutCount_2)>8) 
+						{
+							timeOutCount = 0;
+							ret = 0;
+							break;
+						}
 					}
 					stat = 3316;
 					break;
 				case 3316:
-					
+					timeOutCount_2 = count;
 					while(1)
 					{
 						discoverMsgIdPos2[1] = strstr((const char *)USART2_RX_BUF,(const char *)",3316");
 						if(discoverMsgIdPos2[1])
 						{
-						for(i_1 = 0;*(discoverMsgIdPos2[1]-9+i_1)!=',';i_1++);
-						memcpy(oneNetDevice.discoverMsgId_3316,discoverMsgIdPos2[1]-9+i_1+1,discoverMsgIdPos2[1]-(discoverMsgIdPos2[1]-9+i_1+1));	
-						NB_ResourcesRegister_Multiple((char *)oneNetDevice.discoverMsgId_3316);
-						break;
+							for(i_1 = 0;*(discoverMsgIdPos2[1]-9+i_1)!=',';i_1++);
+							memcpy(oneNetDevice.discoverMsgId_3316,discoverMsgIdPos2[1]-9+i_1+1,discoverMsgIdPos2[1]-(discoverMsgIdPos2[1]-9+i_1+1));	
+							NB_ResourcesRegister_Multiple((char *)oneNetDevice.discoverMsgId_3316);
+							break;
+						}
+						if((count - timeOutCount_2)>8) 
+						{
+							timeOutCount = 0;
+							ret = 0;
+							break;
 						}
 					}
 					stat = 3303;
 					break;
 				case 3303:
-					
+					timeOutCount_2 = count;
 					while(1)
 					{
 						discoverMsgIdPos2[2] = strstr((const char *)USART2_RX_BUF,(const char *)",3303");
@@ -688,11 +874,17 @@ uint8_t NB_SendRegistrationRequest_2(void)
 							NB_ResourcesRegister_Single((char *)oneNetDevice.discoverMsgId_3303);
 							break;
 						}
+						if((count - timeOutCount_2)>8) 
+						{
+							timeOutCount = 0;
+							ret = 0;
+							break;
+						}
 					}
 					stat = 3304;
 					break;
 				case 3304:
-					
+					timeOutCount_2 = count;
 					while(1)
 					{			
 						discoverMsgIdPos2[3] = strstr((char *)USART2_RX_BUF,(const char *)",3304");
@@ -703,11 +895,17 @@ uint8_t NB_SendRegistrationRequest_2(void)
 							NB_ResourcesRegister_Single((char *)oneNetDevice.discoverMsgId_3304);
 							break;
 						}
+						if((count - timeOutCount_2)>8) 
+						{
+							timeOutCount = 0;
+							ret = 0;
+							break;
+						}
 					}
 					stat = 3323;
 					break;
 				case 3323:
-					
+					timeOutCount_2 = count;
 					while(1)
 					{	
 						discoverMsgIdPos2[4] = strstr((char *)USART2_RX_BUF,(const char *)",3323");
@@ -718,6 +916,12 @@ uint8_t NB_SendRegistrationRequest_2(void)
 							NB_ResourcesRegister_Single((char *)oneNetDevice.discoverMsgId_3323);
 							break;
 						}
+						if((count - timeOutCount_2)>8) 
+						{
+							timeOutCount = 0;
+							ret = 0;
+							break;
+						}
 					}
 					ret = 2;
 					break;
@@ -726,7 +930,7 @@ uint8_t NB_SendRegistrationRequest_2(void)
 		}
 		if(ret == 2)
 			break;
-		if((count - timeOutCount)>20)
+		if((count - timeOutCount)>45)
 		{
 			timeOutCount = 0;
 			ret = 0;
