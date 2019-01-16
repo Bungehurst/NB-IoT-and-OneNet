@@ -40,7 +40,7 @@ void PTC_Init(void)
 	//IIC_HTS初始化
 	IIC_HTS_Init();			 	
 	
-	for(int i = 0;i < 20;i++) delay_ms(1000);		//延迟20s等待模块开机
+	for(int i = 0;i < 10;i++) delay_ms(1000);		//延迟20s等待模块开机
 	
 	DMA_Cmd(DMA1_Channel6,ENABLE);	
 	USART_Cmd(USART2,ENABLE);	
@@ -53,20 +53,20 @@ void PTC_Init(void)
 		delay_ms(1000);delay_ms(1000);						//2s
 		RegistrationRequestStatus = NB_SendRegistrationRequest();		//注册
 	}
-	delay_ms(1000);															//1s
+	//delay_ms(1000);															//1s
 	if(RegistrationRequestStatus == 2)
 	{
 		printf("AT+MIPLCLOSE=0\r\n");							//关闭链路
 		printf("AT+MIPLCLOSE=0\r\n");
 	}
 
-	delay_ms(1000);delay_ms(1000);							//2s
+	//delay_ms(1000);delay_ms(1000);							//2s
 	
 	memset(&oneNetDevice,0,sizeof(oneNetDevice));		//清结构体
 	memset(USART2_RX_BUF,0,sizeof(USART2_RX_BUF));	//清缓存
 	
 	
-	for(int i = 0;i < 10;i++) delay_ms(1000);		//延迟10s
+	for(int i = 0;i < 5;i++) delay_ms(1000);		//延迟10s
 	
 	count = 0;																			//计数清零
 }

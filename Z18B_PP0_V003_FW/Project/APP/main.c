@@ -35,14 +35,14 @@ int main(void)
 		if(err_stat==0)
 		{
 			count=0;
-			while(count<60) 
+			while(count<30) 
 			{	
 				
 			}
 		}else
 		{
 			count=0;
-			while(count<30) 
+			while(count<15) 
 			{	
 				
 			}
