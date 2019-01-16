@@ -116,7 +116,7 @@ void APP_Start(void)
 			
 			NB_Buffer[0] = tem;
 			NB_Buffer[1] = hum;
-			NB_Buffer[2] = Press/1000.0;
+			NB_Buffer[2] = Press/10000.0;//单位hpa
 			NB_Buffer[3] = CO*1000.0;
 			NB_Buffer[4] = SO2*1000.0;
 			NB_Buffer[5] = NO2*1000.0;
@@ -154,7 +154,8 @@ void APP_Start(void)
 				RegistrationRequestStatus = NB_SendRegistrationRequest_2();
 			}else if(err_stat == 1)												//如果模块有问题 err_stat == 1
 			{																							//删除注册信息，重新配置
-				
+				printf("AT+NRB\r\n");
+				for(int i = 0; i< 10 ;i++) delay_ms(1000);
 				NB_InitConnectOneNet();	
 				NB_DeleteRegistrationRequest();
 				delay_ms(1000);delay_ms(1000);

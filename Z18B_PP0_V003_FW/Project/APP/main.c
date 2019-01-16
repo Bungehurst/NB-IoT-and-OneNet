@@ -30,7 +30,6 @@ int main(void)
 	{
 		State = NB_TEST ;
 		APP_Start();																	//应用层入口
-		//延时60s
 
 		if(err_stat==0)
 		{
