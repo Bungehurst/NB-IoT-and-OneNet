@@ -49,6 +49,7 @@
 ..\obj\usart2_send.o: ..\BSP\usart\usart3_pm.h
 ..\obj\usart2_send.o: ..\APP\app.h
 ..\obj\usart2_send.o: ..\BSP\usart\usart2_send.h
+..\obj\usart2_send.o: ..\BSP\iwdog\iwdog.h
 ..\obj\usart2_send.o: ..\PTC\nb-iot\nbiot.h
 ..\obj\usart2_send.o: ..\ALG\hexstring\hexstring.h
 ..\obj\usart2_send.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h

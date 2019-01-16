@@ -116,7 +116,7 @@ void APP_Start(void)
 			
 			NB_Buffer[0] = tem;
 			NB_Buffer[1] = hum;
-			NB_Buffer[2] = Press;
+			NB_Buffer[2] = Press/10.0;
 			NB_Buffer[3] = CO;
 			NB_Buffer[4] = SO2;
 			NB_Buffer[5] = NO2;

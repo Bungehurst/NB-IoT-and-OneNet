@@ -52,3 +52,4 @@
 ..\obj\bsp.o: ..\ALG\kalman\kalman.h
 ..\obj\bsp.o: ..\BSP\usart\usart3_pm.h
 ..\obj\bsp.o: ..\APP\app.h
+..\obj\bsp.o: ..\BSP\iwdog\iwdog.h

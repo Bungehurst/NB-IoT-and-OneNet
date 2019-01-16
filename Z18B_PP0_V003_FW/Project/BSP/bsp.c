@@ -33,6 +33,7 @@ void BSP_Init(void)
 	USART3_PM_DMA_Init();														//串口3_DMA初始化---PM传感器
 	USART2_Send_Init();															//串口2初始化---透传模块
 	
+	IWDG_Init(7,625);
 }
 
 

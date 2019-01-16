@@ -53,3 +53,4 @@
 ..\obj\app.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 ..\obj\app.o: ..\BSP\usart\usart3_pm.h
 ..\obj\app.o: ..\APP\app.h
+..\obj\app.o: ..\BSP\iwdog\iwdog.h

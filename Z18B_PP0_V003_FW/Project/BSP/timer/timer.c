@@ -73,7 +73,7 @@ void TIM2_IRQHandler(void)
 
 		//kalman_tem.predict = kalman1_filter(&kalman_tem,tem);					//ÎÂ¶È¿¨¶ûÂüÂË²¨
 		//kalman_hum.predict = kalman1_filter(&kalman_hum,hum);					//Êª¶È¿¨¶ûÂüÂË²¨
-		
+		IWDG_Feed();
 		count++;
 	}
 }

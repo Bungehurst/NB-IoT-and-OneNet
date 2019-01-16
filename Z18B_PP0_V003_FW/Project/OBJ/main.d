@@ -53,3 +53,4 @@
 ..\obj\main.o: ..\ALG\kalman\kalman.h
 ..\obj\main.o: ..\BSP\usart\usart3_pm.h
 ..\obj\main.o: ..\APP\app.h
+..\obj\main.o: ..\BSP\iwdog\iwdog.h

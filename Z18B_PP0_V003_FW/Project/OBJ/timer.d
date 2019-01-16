@@ -49,6 +49,7 @@
 ..\obj\timer.o: ..\ALG\kalman\kalman.h
 ..\obj\timer.o: ..\..\ARM-Cortex-M3\CORE\stm32f10x_it.h
 ..\obj\timer.o: ..\BSP\usart\usart2_send.h
+..\obj\timer.o: ..\BSP\iwdog\iwdog.h
 ..\obj\timer.o: ..\PTC\nb-iot\nbiot.h
 ..\obj\timer.o: ..\ALG\hexstring\hexstring.h
 ..\obj\timer.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h

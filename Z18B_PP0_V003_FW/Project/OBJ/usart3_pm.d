@@ -52,4 +52,5 @@
 ..\obj\usart3_pm.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 ..\obj\usart3_pm.o: ..\ALG\kalman\kalman.h
 ..\obj\usart3_pm.o: ..\BSP\usart\usart3_pm.h
+..\obj\usart3_pm.o: ..\BSP\iwdog\iwdog.h
 ..\obj\usart3_pm.o: ..\APP\app.h

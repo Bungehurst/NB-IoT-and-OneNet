@@ -365,7 +365,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\ARM-Cortex-M3\CORE;..\..\ARM-Cortex-M3\FWLib\inc;..\..\ARM-Cortex-M3\SYSTEM\delay;..\..\ARM-Cortex-M3\SYSTEM\sys;..\BSP;..\APP;..\PTC;..\BSP\iic;..\BSP\led;..\BSP\timer;..\BSP\usart;..\PTC\ads1115;..\PTC\gy68;..\PTC\sht31;..\ALG\kalman;..\ALG\avrfilter;..\PTC\nb-iot;..\ALG\hexstring</IncludePath>
+              <IncludePath>..\..\ARM-Cortex-M3\CORE;..\..\ARM-Cortex-M3\FWLib\inc;..\..\ARM-Cortex-M3\SYSTEM\delay;..\..\ARM-Cortex-M3\SYSTEM\sys;..\BSP;..\APP;..\PTC;..\BSP\iic;..\BSP\led;..\BSP\timer;..\BSP\usart;..\PTC\ads1115;..\PTC\gy68;..\PTC\sht31;..\ALG\kalman;..\ALG\avrfilter;..\PTC\nb-iot;..\ALG\hexstring;..\BSP\iwdog</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -488,6 +488,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\ARM-Cortex-M3\FWLib\src\stm32f10x_usart.c</FilePath>
             </File>
+            <File>
+              <FileName>stm32f10x_iwdg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\ARM-Cortex-M3\FWLib\src\stm32f10x_iwdg.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -527,6 +532,11 @@
               <FileName>iic_HTS.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\BSP\iic\iic_HTS.c</FilePath>
+            </File>
+            <File>
+              <FileName>iwdog.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\BSP\iwdog\iwdog.c</FilePath>
             </File>
           </Files>
         </Group>

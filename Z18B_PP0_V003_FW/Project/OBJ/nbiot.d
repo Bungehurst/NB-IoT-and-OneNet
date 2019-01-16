@@ -50,6 +50,7 @@
 ..\obj\nbiot.o: ..\BSP\usart\usart3_pm.h
 ..\obj\nbiot.o: ..\APP\app.h
 ..\obj\nbiot.o: ..\BSP\usart\usart2_send.h
+..\obj\nbiot.o: ..\BSP\iwdog\iwdog.h
 ..\obj\nbiot.o: ..\PTC\nb-iot\nbiot.h
 ..\obj\nbiot.o: ..\ALG\hexstring\hexstring.h
 ..\obj\nbiot.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h

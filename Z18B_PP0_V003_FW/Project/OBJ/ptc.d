@@ -48,6 +48,7 @@
 ..\obj\ptc.o: ..\APP\app.h
 ..\obj\ptc.o: ..\..\ARM-Cortex-M3\CORE\stm32f10x_it.h
 ..\obj\ptc.o: ..\BSP\usart\usart2_send.h
+..\obj\ptc.o: ..\BSP\iwdog\iwdog.h
 ..\obj\ptc.o: ..\PTC\nb-iot\nbiot.h
 ..\obj\ptc.o: ..\ALG\hexstring\hexstring.h
 ..\obj\ptc.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
