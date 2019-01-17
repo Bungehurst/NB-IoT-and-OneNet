@@ -154,7 +154,11 @@ void APP_Start(void)
 				RegistrationRequestStatus = NB_SendRegistrationRequest_2();
 			}else if(err_stat == 1)												//如果模块有问题 err_stat == 1
 			{																							//删除注册信息，重新配置
-				printf("AT+NRB\r\n");
+				USART_Cmd(USART2,DISABLE);											//失能串口
+				DMA_Cmd(DMA1_Channel6,DISABLE);									//失能DMA
+				NB_IOT_RESET = 0;
+				delay_ms(300);
+				NB_IOT_RESET = 1;
 				for(int i = 0; i< 10 ;i++) delay_ms(1000);
 				NB_InitConnectOneNet();	
 				NB_DeleteRegistrationRequest();

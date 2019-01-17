@@ -14,8 +14,9 @@
 #define STM32_LED_SDCARD 	PFout(9)
 #define STM32_LED_NBIOT 	PFout(10)
 #define STM32_LED_HTS			PEout(6)
+#define NB_IOT_RESET			PBout(13)
 
 void LED_Init(void);
-
+void Reset_Init(void);
 		 				    
 #endif

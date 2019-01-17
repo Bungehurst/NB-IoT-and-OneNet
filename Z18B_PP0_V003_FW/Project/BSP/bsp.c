@@ -26,7 +26,7 @@ void BSP_Init(void)
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);	//设置中断优先级分组为组2：2位抢占优先级，2位响应优先级
 	Delay_Init();																		//延时函数初始化	
 	LED_Init();																			//LED初始化
-
+	Reset_Init();
 	TIMER_Init(10000-1,4800-1);											//定时器初始化，周期1S
 
 	USART3_PM_Init(9600);														//串口3初始化
