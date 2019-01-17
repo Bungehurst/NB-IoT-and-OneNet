@@ -154,12 +154,15 @@ void APP_Start(void)
 				RegistrationRequestStatus = NB_SendRegistrationRequest_2();
 			}else if(err_stat == 1)												//如果模块有问题 err_stat == 1
 			{																							//删除注册信息，重新配置
-				USART_Cmd(USART2,DISABLE);											//失能串口
-				DMA_Cmd(DMA1_Channel6,DISABLE);									//失能DMA
-				NB_IOT_RESET = 0;
-				delay_ms(300);
+				USART_Cmd(USART2,DISABLE);									//失能串口
+				DMA_Cmd(DMA1_Channel6,DISABLE);							//失能DMA
+				NB_IOT_RESET = 0;														//NB模块硬件复位
+				delay_ms(500);
 				NB_IOT_RESET = 1;
-				for(int i = 0; i< 10 ;i++) delay_ms(1000);
+				for(int i = 0; i< 10 ;i++) delay_ms(1000);	//10s
+				USART_Cmd(USART2,ENABLE);										//失能串口
+				DMA_Cmd(DMA1_Channel6,ENABLE);							//失能DMA
+				//重新注册对象
 				NB_InitConnectOneNet();	
 				NB_DeleteRegistrationRequest();
 				delay_ms(1000);delay_ms(1000);
@@ -175,7 +178,7 @@ void APP_Start(void)
 				err_stat = 0;
 				break;
 			}
-			delay_ms(1000);
+			//delay_ms(1000);
 			if(RegistrationRequestStatus == 2) 
 			{
 				sprintf(T_varible[0],"%4.1f",NB_Buffer[0]);
