@@ -53,14 +53,12 @@ void PTC_Init(void)
 		delay_ms(1000);delay_ms(1000);						//2s
 		RegistrationRequestStatus = NB_SendRegistrationRequest();		//注册
 	}
-	//delay_ms(1000);															//1s
+
 	if(RegistrationRequestStatus == 2)
 	{
 		printf("AT+MIPLCLOSE=0\r\n");							//关闭链路
 		printf("AT+MIPLCLOSE=0\r\n");
 	}
-
-	//delay_ms(1000);delay_ms(1000);							//2s
 	
 	memset(&oneNetDevice,0,sizeof(oneNetDevice));		//清结构体
 	memset(USART2_RX_BUF,0,sizeof(USART2_RX_BUF));	//清缓存

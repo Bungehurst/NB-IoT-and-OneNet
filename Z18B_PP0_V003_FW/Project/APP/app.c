@@ -116,11 +116,11 @@ void APP_Start(void)
 			
 			NB_Buffer[0] = tem;
 			NB_Buffer[1] = hum;
-			NB_Buffer[2] = Press/10000.0;//µ¥Î»hpa
-			NB_Buffer[3] = CO*1000.0;
-			NB_Buffer[4] = SO2*1000.0;
-			NB_Buffer[5] = NO2*1000.0;
-			NB_Buffer[6] = O3*1000.0;
+			NB_Buffer[2] = Press;
+			NB_Buffer[3] = CO;
+			NB_Buffer[4] = SO2;
+			NB_Buffer[5] = NO2;
+			NB_Buffer[6] = O3;
 			NB_Buffer[7] = Pm2;
 			NB_Buffer[8] = Pm10;
 			NB_Buffer[9] = Vel;
@@ -181,38 +181,43 @@ void APP_Start(void)
 			//delay_ms(1000);
 			if(RegistrationRequestStatus == 2) 
 			{
-				sprintf(T_varible[0],"%4.1f",NB_Buffer[0]);
-				NB_NotifyOneNetMsg((const char *)oneNetDevice.observeMsgId_3303_0,(uint8_t *)"3303",(uint8_t *)"0",(uint8_t *)"5700",(uint8_t *)T_varible[0]);
+				sprintf(T_varible[0],"%f",NB_Buffer[0]);
+				NB_NotifyOneNetMsg((const char *)oneNetDevice.observeMsgId_3303_0,
+													 (uint8_t *)"3303",
+													 (uint8_t *)"0",
+													 (uint8_t *)"5700",
+													 (uint8_t *)T_varible[0]);
 
-				sprintf(T_varible[1],"%4.1f",NB_Buffer[1]);
+				sprintf(T_varible[1],"%f",NB_Buffer[1]);
 				NB_NotifyOneNetMsg((const char *)oneNetDevice.observeMsgId_3304_0,(uint8_t *)"3304",(uint8_t *)"0",(uint8_t *)"5700",(uint8_t *)T_varible[1]);
 
 				sprintf(T_varible[2],"%4.1f",NB_Buffer[2]);
 				NB_NotifyOneNetMsg((const char *)oneNetDevice.observeMsgId_3323_0,(uint8_t *)"3323",(uint8_t *)"0",(uint8_t *)"5700",(uint8_t *)T_varible[2]);
 
-				sprintf(T_varible[3],"%4.1f",NB_Buffer[3]);
+				sprintf(T_varible[3],"%f",NB_Buffer[3]);
 				NB_NotifyOneNetMsg((const char *)oneNetDevice.observeMsgId_3315_0,(uint8_t *)"3315",(uint8_t *)"0",(uint8_t *)"5700",(uint8_t *)T_varible[3]);
 
-				sprintf(T_varible[4],"%4.1f",NB_Buffer[4]);
+				sprintf(T_varible[4],"%f",NB_Buffer[4]);
 				NB_NotifyOneNetMsg((const char *)oneNetDevice.observeMsgId_3315_1,(uint8_t *)"3315",(uint8_t *)"1",(uint8_t *)"5700",(uint8_t *)T_varible[4]);
 
-				sprintf(T_varible[5],"%4.1f",NB_Buffer[5]);
+				sprintf(T_varible[5],"%f",NB_Buffer[5]);
 				NB_NotifyOneNetMsg((const char *)oneNetDevice.observeMsgId_3315_2,(uint8_t *)"3315",(uint8_t *)"2",(uint8_t *)"5700",(uint8_t *)T_varible[5]);
 
-				sprintf(T_varible[6],"%4.1f",NB_Buffer[6]);
+				sprintf(T_varible[6],"%f",NB_Buffer[6]);
 				NB_NotifyOneNetMsg((const char *)oneNetDevice.observeMsgId_3315_3,(uint8_t *)"3315",(uint8_t *)"3",(uint8_t *)"5700",(uint8_t *)T_varible[6]);
 
-				sprintf(T_varible[7],"%4.1f",NB_Buffer[7]);
+				sprintf(T_varible[7],"%f",NB_Buffer[7]);
 				NB_NotifyOneNetMsg((const char *)oneNetDevice.observeMsgId_3316_0,(uint8_t *)"3316",(uint8_t *)"0",(uint8_t *)"5700",(uint8_t *)T_varible[7]);
 
-				sprintf(T_varible[8],"%4.1f",NB_Buffer[8]);
+				sprintf(T_varible[8],"%f",NB_Buffer[8]);
 				NB_NotifyOneNetMsg((const char *)oneNetDevice.observeMsgId_3316_1,(uint8_t *)"3316",(uint8_t *)"1",(uint8_t *)"5700",(uint8_t *)T_varible[8]);
 
-				sprintf(T_varible[9],"%4.1f",NB_Buffer[9]);
+				sprintf(T_varible[9],"%f",NB_Buffer[9]);
 				NB_NotifyOneNetMsg((const char *)oneNetDevice.observeMsgId_3316_2,(uint8_t *)"3316",(uint8_t *)"2",(uint8_t *)"5700",(uint8_t *)T_varible[9]);
 
-				sprintf(T_varible[10],"%4.1f",NB_Buffer[10]);
+				sprintf(T_varible[10],"%f",NB_Buffer[10]);
 				NB_NotifyOneNetMsg((const char *)oneNetDevice.observeMsgId_3316_3,(uint8_t *)"3316",(uint8_t *)"3",(uint8_t *)"5700",(uint8_t *)T_varible[10]);
+				
 				delay_ms(1000);
 				memset(&oneNetDevice,0,sizeof(oneNetDevice));
 				NB_SendCmd((uint8_t *)"AT+MIPLCLOSE=0\r\n",(uint8_t *)"+MIPLEVENT: 0",DefaultTimeout,1);

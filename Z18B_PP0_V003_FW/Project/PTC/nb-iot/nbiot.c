@@ -338,7 +338,7 @@ uint8_t NB_SendRegistrationRequest(void)
 
 	}
 	
-	memset(USART2_RX_BUF,1,(observeMsgIdPos2[2]-USART2_RX_BUF+15));
+	memset(USART2_RX_BUF,1,((u8 *)observeMsgIdPos2[2]-USART2_RX_BUF+15));
 	
 	timeOutCount = count;
 
@@ -807,7 +807,7 @@ uint8_t NB_SendRegistrationRequest_2(void)
 		delay_ms(100);
 
 	}
-	memset(USART2_RX_BUF,1,(observeMsgIdPos2[2]-USART2_RX_BUF+15));
+	memset(USART2_RX_BUF,1,((u8 *)observeMsgIdPos2[2]-USART2_RX_BUF+15));
 	
 	timeOutCount = count;
 
