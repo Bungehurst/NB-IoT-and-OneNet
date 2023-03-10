@@ -1,3 +1,2 @@
-# Z18B_NB-IoT
-
-?strstr未查到子串时返回NULL，此时程序应加保护
+# NB-IoT and OneNet
+The project combines temperature sensors, gyroscope, and nb-iot modules with STM32 MCU in a small-size PCB, which achieved a fixed interval data acquirement and transmission task.
